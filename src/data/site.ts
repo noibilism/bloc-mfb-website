@@ -22,7 +22,7 @@ export const SITE = {
     google: 'https://play.google.com/store/apps/details?id=com.blocmfb.mobile',
   },
   social: {
-    linkedin: 'https://www.linkedin.com/company/bloc-microfinance/',
+    linkedin: 'https://www.linkedin.com/company/blocmfb/',
     instagram: 'https://www.instagram.com/blocmfb',
     facebook: 'https://www.facebook.com/share/1GZiSisMNX/',
     x: 'https://twitter.com/blocmfb',
