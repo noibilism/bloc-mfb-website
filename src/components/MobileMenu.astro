@@ -1,0 +1,9 @@
+---
+import { SITE } from '../data/site';
+const links: [string, string][] = [['Personal','/personal/'],['Business','/business/'],['Company','/about/'],['Security','/security/'],['Help','/help/'],['Contact','/contact/']];
+---
+<div class="mnu" id="menu" aria-hidden="true">
+  <div class="mt"><img src="/assets/bloc-logo-white.png" alt="Bloc Microfinance Bank" width="2124" height="889" /><button class="mx" type="button" aria-label="Close menu">&#10005;</button></div>
+  <nav aria-label="Menu">{links.map(([t, h]) => <a href={h}>{t}<span>&rarr;</span></a>)}</nav>
+  <div class="mbt"><a class="mbtn g" href="/personal/#download">Download app</a><a class="mbtn w" href={SITE.business}>Open a business account</a></div>
+</div>

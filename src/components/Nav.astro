@@ -1,0 +1,67 @@
+---
+import Icon from './Icon.astro';
+import { SITE } from '../data/site';
+
+interface Props { section?: 'home' | 'personal' | 'business' | 'company' }
+const { section = 'home' } = Astro.props;
+
+type Item = [icon: string, title: string, desc: string, href: string];
+type Link = [label: string, href: string];
+
+const personal: Item[] = [
+  ['send', 'Send money', 'To any Nigerian bank', '/personal/#what'],
+  ['receive', 'Receive money', 'Share your account number', '/personal/#what'],
+  ['bills', 'Pay bills', 'Airtime, data, power and TV', '/personal/#bills'],
+  ['save', 'Save money', 'Set goals and track them', '/personal/#what'],
+  ['loan', 'Take loan', 'See your repayment first', '/personal/#what'],
+];
+const business: Item[] = [
+  ['building', 'Business account', 'An account in your company name', '/business/#biz'],
+  ['inbox', 'Collect payments', 'Account numbers for customers', '/business/#biz'],
+  ['layers', 'Payroll and bulk payments', 'Pay many people at once', '/business/#biz'],
+  ['users', 'Team access', 'Roles for your team', '/business/#biz'],
+  ['file', 'Statements', 'Download and reconcile', '/business/#biz'],
+  ['send', 'Supply chain finance', 'Working capital for suppliers and orders', '/supply-chain-finance/'],
+];
+const company: Item[] = [
+  ['building', 'About Bloc', 'Who we are and who we serve', '/about/'],
+  ['users', 'Leadership', 'The people running the bank', '/leadership/'],
+  ['account', 'Careers', 'Open roles at Bloc', '/careers/'],
+  ['file', 'Legal and compliance', 'Licences, policies and terms', '/legal/'],
+  ['shieldck', 'Security', 'How we protect money and data', '/security/'],
+];
+const menus: { label: string; key: string; items: Item[]; side: Link[]; co?: boolean }[] = [
+  { label: 'Personal', key: 'personal', items: personal, side: [['Security', '/personal/#security'], ['Guide to charges', '/charges/'], ['FAQs', '/personal/#faq']] },
+  { label: 'Business', key: 'business', items: business, side: [['Open an account', SITE.business], ['How it works', '/business/#how'], ['FAQs', '/business/#faq']] },
+  { label: 'Company', key: 'company', items: company, co: true, side: [['Contact us', '/contact/'], ['Complaints', '/legal/#complaints'], ['Guide to charges', '/charges/'], ['Help centre', '/help/']] },
+];
+const cta = section === 'business'
+  ? { label: 'Open a business account', href: SITE.business }
+  : { label: 'Download app', href: '/personal/#download' };
+const signin = section === 'business' ? SITE.business : '/personal/#download';
+---
+<header class="nav" id="top">
+  <div class="util"><div class="u"><span>Licensed by the Central Bank of Nigeria. Deposits insured by the NDIC.</span><span class="ul"><a href="/help/">Help</a><a href="/contact/">Contact</a></span></div></div>
+  <div class="w">
+    <a href="/" aria-label="Bloc Microfinance Bank home"><img class="lg" src="/assets/bloc-logo-navy.png" alt="Bloc Microfinance Bank" width="2124" height="889" /></a>
+    <nav class="nl" aria-label="Main">
+      {menus.map((m) => (
+        <div class:list={['dd', { co: m.co }]}>
+          <button class:list={['dt', { on: section === m.key }]} type="button" aria-haspopup="true">{m.label}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dp"><div class="dpi">
+            <div class="dpl">{m.items.map(([i, t, d, h]) => (
+              <a class="di" href={h}><span class="ib2"><Icon name={i} size={18} /></span><span><b>{t}</b><span>{d}</span></span></a>
+            ))}</div>
+            <div class="dpr"><h5>Learn more</h5>{m.side.map(([t, h]) => <a href={h}>{t}</a>)}</div>
+          </div></div>
+        </div>
+      ))}
+    </nav>
+    <div class="nr"><a class="btn o" href={signin}>Sign in</a><a class="btn p" href={cta.href}>{cta.label}</a></div>
+    <button class="mb" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><Icon name="menu" size={24} /></button>
+  </div>
+  <div class="segrow"><div class="seg" role="group" aria-label="Choose Personal or Business">
+    <a href="/personal/" class:list={[{ on: section === 'personal' }]}>Personal</a>
+    <a href="/business/" class:list={[{ on: section === 'business' }]}>Business</a>
+  </div></div>
+</header>

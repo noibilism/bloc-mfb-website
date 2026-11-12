@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../data/site';
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Bloc Microfinance Bank',
+  url: SITE.url + '/contact/',
+  about: { '@id': SITE.url + '/#organization' },
+};
+---
+<Layout title="Contact us" description="Contact Bloc Microfinance Bank by phone, email or by visiting our Lagos office. Our support team is available 24/7." path="/contact/" section="company" breadcrumb={[{ name: 'Contact us', path: '/contact/' }]} schema={[localBusiness]}>
+<PageHead crumb="Contact us" h1="Let's get in touch." lead="Our support team is available 24/7. Call, email or send us a message." />
+<section class="sec" id="contact2"><div class="w split2">
+  <div>
+    <div class="ipl">
+      <div class="ipn"><b>Phone</b><span><a class="ul2" href={`tel:${SITE.phone}`}>{SITE.phone}</a></span></div>
+      <div class="ipn"><b>Email</b><span><a class="ul2" href={`mailto:${SITE.email}`}>{SITE.email}</a></span></div>
+      <div class="ipn"><b>Visit or write to us</b><span>{SITE.addressLine}</span></div>
+    </div>
+    <p style="margin-top:24px"><a class="more" href="/help/">Browse help and FAQs <Icon name="arrow" size={18} /></a></p>
+  </div>
+  <div>
+    <h2 style="margin-top:0;font-size:32px;line-height:40px">Send us a message.</h2>
+    <form class="cf" id="contact-form" novalidate data-endpoint={SITE.contactEndpoint}>
+      <label>Full name<input name="name" type="text" autocomplete="name" required /></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required /></label>
+      <label>Phone number<input name="phone" type="tel" autocomplete="tel" /></label>
+      <label>Subject<input name="subject" type="text" required /></label>
+      <label>Message<textarea name="message" required></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off" /></label></div>
+      <small>We use your details only to reply to you. See our <a href="/privacy-notice/">privacy notice</a>. Never send your PIN, password or full card number.</small>
+      <button class="btn p" type="submit">Send message</button>
+      <div class="st" id="contact-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></section>
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-status') as HTMLElement | null;
+  if (form && status) {
+    const say = (msg: string, kind: 'ok' | 'err') => { status.textContent = msg; status.className = 'st ' + kind; };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      if (data.website) return; // honeypot
+      if (!data.name?.trim() || !/^\S+@\S+\.\S+$/.test(data.email || '') || !data.subject?.trim() || !data.message?.trim()) {
+        say('Please fill in your name, a valid email, a subject and your message.', 'err');
+        return;
+      }
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) {
+        say('This form is not connected yet. Please email support@blocmfb.com or call 07042047811.', 'err');
+        return;
+      }
+      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+      btn.disabled = true; say('Sending...', 'ok');
+      try {
+        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, page: location.href }) });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset(); say('Thank you. We have your message and will reply by email.', 'ok');
+      } catch {
+        say('We could not send your message. Please email support@blocmfb.com or call 07042047811.', 'err');
+      } finally { btn.disabled = false; }
+    });
+  }
+</script>
+</Layout>

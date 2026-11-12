@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+const faq = [
+ {
+  "q": "Who can open a business account?",
+  "a": "SMEs, growing businesses and corporates across Nigeria: registered limited companies, sole traders and growing enterprises."
+ },
+ {
+  "q": "What is supply chain finance?",
+  "a": "It gives your business access to working capital tied up in invoices or purchase orders. Instead of waiting 30, 60 or 90 days to be paid, Bloc advances the funds, and you repay on a schedule built around your cash cycle. Email support@blocmfb.com or use the app to apply."
+ },
+ {
+  "q": "Can Bloc run my payroll?",
+  "a": "Yes. Pay all your staff across different banks in one batch. Each payment is confirmed and logged."
+ },
+ {
+  "q": "Can my team use the account?",
+  "a": "Yes. You add team members and choose what each person can do."
+ },
+ {
+  "q": "Are my deposits insured?",
+  "a": "Bloc Microfinance Bank is licensed by the Central Bank of Nigeria. Deposits are insured by the NDIC, subject to its limits."
+ },
+ {
+  "q": "How do I collect payments from customers?",
+  "a": "Give each customer or branch their own account number. Payments land in your account and show in your statement."
+ },
+ {
+  "q": "Can I connect Bloc to my own software?",
+  "a": "Yes. Our API covers virtual accounts and BVN validation. Email support@blocmfb.com to talk to us."
+ },
+ {
+  "q": "How do I get help?",
+  "a": "Email support@blocmfb.com."
+ }
+];
+---
+<Layout title="Business banking in Nigeria | Bloc Microfinance Bank" description="Open a Bloc business account for your registered company. Collect payments, pay suppliers, run payroll, give your team access and download statements." path="/business/" section="business" breadcrumb={[{"name": "Business banking", "path": "/business/"}]} faq={faq} preload="/assets/photo-business.webp">
+<section class="hero bz" aria-labelledby="h1"><div class="w"><div class="hl"><div class="chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Licensed by the CBN. Insured by NDIC.</span></div>
+<h1 id="h1">Business banking<br>for registered companies.</h1><p class="sub">Collect payments, pay suppliers and give your team the right access, all in one place.</p><div class="hbtns"><a class="btn g" href="https://ibank.blocmfb.com" target="_blank" rel="noopener">Open a business account</a><a class="btn w2" href="https://ibank.blocmfb.com" target="_blank" rel="noopener">Sign in</a></div><div class="hnote"><span>You need your CAC registration and your directors' BVN and NIN.</span></div></div><div class="hp"><img class="pimg" src="/assets/photo-business.webp" alt="A shop owner smiling at her tablet in her fabric boutique" width="1536" height="1024" fetchpriority="high" decoding="async"><div class="fc c3"><span class="fi2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span><span>Payment received<small>₦50,000.00 · Collection account</small></span></div><img class="dashcard" src="/assets/biz-dashboard.webp" alt="Bloc business overview with account balance and recent activity" width="1920" height="1200"></div></div></section><section class="stmt" aria-label="Regulation"><div class="w"><div><div class="lab "><i class="ch"></i><span>Regulation</span></div><h2 style="margin-top:16px">Licensed by the CBN.<br>Insured by the NDIC.</h2>
+<p>Bloc Microfinance Bank operates under a licence from the Central Bank of Nigeria. Deposits are insured by the Nigeria Deposit Insurance Corporation, subject to its limits.</p></div>
+<div class="sl"><div class="ti"><div class="tl"><img width="141" height="150" src="/assets/reg-cbn.png" alt="CBN logo"></div><div><b>Licensed by the CBN</b><span>Central Bank of Nigeria</span></div></div><div class="ti"><div class="tl"><img width="420" height="178" src="/assets/reg-ndic.png" alt="NDIC logo"></div><div><b>Insured by NDIC</b><span>Nigeria Deposit Insurance Corporation</span></div></div><div class="ti"><div class="tl"><img width="160" height="160" src="/assets/reg-ndpc.png" alt="NDPC logo"></div><div><b>NDPA compliant</b><span>Nigeria Data Protection Act</span></div></div></div></div></section><section class="sec sky" id="biz"><div class="w">
+<div class="lab "><i class="ch"></i><span>What you get</span></div>
+<h2>Business banking products.</h2>
+<div class="grid3">
+<article class="bcard ch"><div class="ib ch" style="background:var(--gold)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></div><h3>Business account</h3><p>An account in your company's name, ready for day-to-day money.</p></article>
+<article class="bcard ch"><div class="ib ch" style="background:var(--pink)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><h3>Collect payments</h3><p>Give each customer or branch their own account number to pay into.</p></article>
+<article class="bcard ch"><div class="ib ch" style="background:var(--steel)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div><h3>Transfers</h3><p>Pay suppliers at any Nigerian bank. You see the fee before you confirm.</p></article>
+<article class="bcard ch"><div class="ib ch" style="background:var(--coral)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3>Payroll and bulk payments</h3><p>Pay all your staff across different banks in one batch. Each payment is confirmed and logged.</p></article>
+<article class="bcard ch"><div class="ib ch" style="background:var(--gold)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Team access</h3><p>Role-based permissions, so each person only sees and does what they need.</p></article>
+<article class="bcard ch"><div class="ib ch" style="background:var(--pink)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg></div><h3>Statements</h3><p>Download PDF statements for reconciliation, tax filing and audit.</p></article>
+</div>
+</div></section><section class="sec" id="scf"><div class="w split2"><div>
+<div class="lab "><i class="ch"></i><span>Supply chain finance</span></div>
+<h2>Do not let cash flow slow your business.</h2>
+<p class="lead">Get access to working capital tied up in invoices and purchase orders, so you can pay suppliers and fulfil orders. You repay on a schedule built around your cash cycle. Apply through our business banking team at support@blocmfb.com or in the app.</p>
+<a class="btn p" href="mailto:support@blocmfb.com">Talk to our team <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div>
+<div class="devs lt">
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><b>Invoice financing</b><span>Unlock cash tied up in outstanding invoices.</span></div></div>
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><b>Purchase order financing</b><span>Fund orders before your customer pays.</span></div></div>
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><b>Supplier payment financing</b><span>Pay your suppliers now and repay on your terms.</span></div></div>
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><b>Working capital facilities</b><span>For businesses growing faster than their cash flow.</span></div></div>
+</div></div></section><section class="sec split"><div class="w"><img class="sp" src="/assets/photo-team.webp" alt="Colleagues laughing together around a laptop" loading="lazy" width="1536" height="1024"><div>
+<div class="lab "><i class="ch"></i><span>Built for teams</span></div>
+<h2>Your whole team, one account.</h2>
+<ul><li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>Add team members to the account</span></li><li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>Choose what each person can do</span></li><li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>Download statements for your records</span></li></ul>
+</div></div></section><section class="sec how" id="how"><div class="w"><div>
+<div class="lab "><i class="ch"></i><span>How it works</span></div>
+<h2>Open your account online.</h2>
+<div class="steps">
+<div class="step"><div class="num ch">1</div><div><b>Tell us about your business</b><span>Add your company name and CAC registration number.</span></div></div>
+<div class="step"><div class="num ch">2</div><div><b>Verify your directors</b><span>Each director adds a BVN and NIN, then takes a selfie.</span></div></div>
+<div class="step"><div class="num ch">3</div><div><b>Start banking</b><span>You see the status of your application. Your account number is ready when we finish checking.</span></div></div>
+</div></div>
+<div class="reqs ch"><h3>Have these ready</h3><ul>
+<li><i class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>Your CAC registration details</span></li>
+<li><i class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>BVN and NIN for each director</span></li>
+<li><i class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>A phone number and email for your business</span></li>
+<li><i class="ch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i><span>Your business address</span></li></ul></div>
+</div></section><section class="sec navyb dev" id="api"><div class="w"><div>
+<div class="lab "><i class="ch"></i><span>For developers</span></div>
+<h2>Integrate with Bloc.</h2>
+<p class="lead">Add banking to your own product with our API.</p>
+<a class="btn g" href="mailto:support@blocmfb.com">Talk to us <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div>
+<div class="devs">
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><div><b>Virtual accounts</b><span>Create account numbers for your customers in bulk.</span></div></div>
+<div class="si2"><div class="ib"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div><b>BVN validation</b><span>Check a customer's BVN from your own app.</span></div></div>
+</div>
+</div></section><section class="chg" id="charges"><div class="w"><div class="cbox ch"><i class="bk ch"></i><div>
+<h2>Fees you can see before you confirm.</h2>
+<p>Every transfer shows its fee first. Read the full guide to charges any time.</p></div>
+<a class="btn p" href="#legal">Read the guide to charges <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div></div></section><section class="sec faq" id="faq"><div class="w"><div>
+<div class="lab "><i class="ch"></i><span>Help</span></div>
+<h2>Frequently asked questions.</h2>
+<p class="lead">Still stuck? Chat with us in the app or email <a href="mailto:support@blocmfb.com">support@blocmfb.com</a>.</p></div>
+<div><details><summary>Who can open a business account?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>SMEs, growing businesses and corporates across Nigeria: registered limited companies, sole traders and growing enterprises.</p></details><details><summary>What is supply chain finance?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>It gives your business access to working capital tied up in invoices or purchase orders. Instead of waiting 30, 60 or 90 days to be paid, Bloc advances the funds, and you repay on a schedule built around your cash cycle. Email support@blocmfb.com or use the app to apply.</p></details><details><summary>Can Bloc run my payroll?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Yes. Pay all your staff across different banks in one batch. Each payment is confirmed and logged.</p></details><details><summary>Can my team use the account?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Yes. You add team members and choose what each person can do.</p></details><details><summary>Are my deposits insured?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Bloc Microfinance Bank is licensed by the Central Bank of Nigeria. Deposits are insured by the NDIC, subject to its limits.</p></details><details><summary>How do I collect payments from customers?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Give each customer or branch their own account number. Payments land in your account and show in your statement.</p></details><details><summary>Can I connect Bloc to my own software?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Yes. Our API covers virtual accounts and BVN validation. Email support@blocmfb.com to talk to us.</p></details><details><summary>How do I get help?<span class="pm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Email support@blocmfb.com.</p></details></div></div></section><section class="dl" id="open"><div class="w"><div class="dbox ch">
+<div class="t"><h2>Open a business account.</h2><p>Start your application online. You will see its status as soon as you submit it.</p>
+<div class="row"><a class="btn p" href="https://ibank.blocmfb.com" target="_blank" rel="noopener" style="min-height:60px;padding:0 32px;font-size:17px">Open a business account <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a><a class="lnk" href="https://ibank.blocmfb.com" target="_blank" rel="noopener">Sign in</a></div></div>
+<div class="pv"><img width="1536" height="1024" class="pv-photo" src="/assets/photo-business.webp" alt="A shop owner smiling at her tablet in her fabric boutique" loading="lazy" style="object-position:50% 25%"></div>
+</div></div></section>
+</Layout>

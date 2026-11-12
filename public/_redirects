@@ -1,0 +1,8 @@
+# Netlify / Cloudflare Pages format. For S3+CloudFront use the CloudFront Function in README.md.
+/faq                    /help/                   301
+/compliance             /legal/                  301
+/download-retail-app    /personal/               301
+/waitlist               /supply-chain-finance/   301
+/terms-of-service       /terms-of-service/       301
+/privacy-policy         /privacy-policy/         301
+/privacy-notice         /privacy-notice/         301

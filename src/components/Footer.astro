@@ -1,0 +1,25 @@
+---
+import { SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="foot" id="contact"><div class="w">
+  <div class="fg">
+    <div><img class="lg" src="/assets/bloc-logo-white.png" alt="Bloc Microfinance Bank" width="2124" height="889" loading="lazy" />
+      <p>Bloc Microfinance Bank is licensed by the Central Bank of Nigeria. Deposits are insured by the Nigeria Deposit Insurance Corporation.</p>
+      <div class="flogos"><div class="tl"><img width="141" height="150" src="/assets/reg-cbn.png" alt="CBN logo" loading="lazy" /></div><div class="tl"><img width="420" height="178" src="/assets/reg-ndic.png" alt="NDIC logo" loading="lazy" /></div><div class="tl"><img width="160" height="160" src="/assets/reg-ndpc.png" alt="NDPC logo" loading="lazy" /></div></div></div>
+    <div><p class="fh">Personal</p><ul><li><a href="/personal/">Overview</a></li><li><a href="/personal/#bills">Pay bills</a></li><li><a href="/personal/#security">Security</a></li><li><a href="/help/">Help</a></li></ul></div>
+    <div><p class="fh">Business</p><ul><li><a href="/business/">Overview</a></li><li><a href="/business/#biz">What you get</a></li><li><a href="/supply-chain-finance/">Supply chain finance</a></li><li><a href={SITE.business} target="_blank" rel="noopener">Open an account</a></li></ul></div>
+    <div><p class="fh">Company</p><ul><li><a href="/about/">About Bloc</a></li><li><a href="/leadership/">Leadership</a></li><li><a href="/careers/">Careers</a></li><li><a href="/security/">Security</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+    <div id="legal"><p class="fh">Legal</p><ul><li><a href="/terms-of-service/">Terms of service</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/privacy-notice/">Privacy notice</a></li><li><a href="/charges/">Guide to charges</a></li><li><a href="/legal/#complaints">Complaints</a></li><li><a href="/legal/#licences">Licences</a></li></ul></div>
+    <div><p class="fh">Contact</p><ul>
+      <li><a href={`mailto:${SITE.email}`}>Support: {SITE.email}</a></li>
+      <li><a href={`tel:${SITE.phone}`}>{SITE.phone}</a></li>
+      <li><a href={SITE.social.linkedin} rel="noopener" target="_blank">LinkedIn</a></li>
+      <li><a href={SITE.social.instagram} rel="noopener" target="_blank">Instagram</a></li>
+      <li><a href={SITE.social.facebook} rel="noopener" target="_blank">Facebook</a></li>
+      <li><a href={SITE.social.x} rel="noopener" target="_blank">@blocmfb on X</a></li></ul>
+      <p class="addr">{SITE.addressLine}</p></div>
+  </div>
+  <p class="disc">Bloc Microfinance Bank is licensed by the Central Bank of Nigeria. Deposits are insured by the Nigeria Deposit Insurance Corporation, subject to its limits. Registered in Nigeria. RC {SITE.rc}. CBN Licence {SITE.licence}. Registered office: {SITE.addressLine}.</p>
+  <div class="legal"><span>&copy; {year} Bloc Microfinance Bank. All rights reserved.</span><span>RC No. {SITE.rc} · CBN Licence No. {SITE.licence}</span></div>
+</div></footer>

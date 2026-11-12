@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../data/site';
+const faq = [
+  { q: 'What is supply chain finance?', a: 'Supply chain finance gives businesses access to working capital tied up in invoices or purchase orders. Instead of waiting 30, 60 or 90 days to be paid, Bloc advances the funds so your business can keep operating. You repay on a schedule built around your cash cycle.' },
+  { q: 'How do I apply?', a: 'Contact our business banking team at support@blocmfb.com or through the app. Share your financing need, invoice, purchase order or working capital requirement and we will come back to you.' },
+  { q: 'Do I give up equity?', a: 'No. Supply chain finance is financing structured around how your business operates. No equity is required.' },
+];
+const products: [string, string][] = [
+  ['Invoice financing', 'Unlock cash tied up in outstanding invoices.'],
+  ['Purchase order financing', 'Fund orders before your customer pays.'],
+  ['Supplier payment financing', 'Pay your suppliers now and repay on your terms.'],
+  ['Working capital facilities', 'For businesses growing faster than their cash flow.'],
+];
+const who = [
+  'Manufacturers and distributors managing supplier payments',
+  'Businesses with invoices outstanding from large buyers or corporates',
+  'Importers and exporters managing cross-border payment timing gaps',
+  'SMEs and growing businesses that need capital without giving up equity',
+];
+const steps: [string, string][] = [
+  ['Submit your financing request', 'Share your invoice, purchase order or working capital need with our team.'],
+  ['Get approved and funded', 'We assess your application and tell you our decision.'],
+  ['Operate, fulfil and repay on schedule', 'Use the funds to pay suppliers and deliver orders, then repay on a schedule built around your cash cycle.'],
+];
+---
+<Layout title="Supply chain finance for Nigerian businesses" description="Invoice, purchase order and supplier payment financing from Bloc Microfinance Bank. Unlock working capital tied up in your supply chain without giving up equity." path="/supply-chain-finance/" section="business" breadcrumb={[{ name: 'Business banking', path: '/business/' }, { name: 'Supply chain finance', path: '/supply-chain-finance/' }]} faq={faq}>
+<PageHead crumb="Supply chain finance" h1="Do not let cash flow hold your business back." lead="Cash tied up in invoices and purchase orders slows growth. Bloc financing frees that capital so you can pay suppliers, fulfil orders and grow." />
+<section class="sec" id="products"><div class="w">
+  <div class="lab"><i class="ch"></i><span>Financing products</span></div>
+  <h2>Capital for every stage of your supply chain.</h2>
+  <div class="grid4b">
+    {products.map(([t, d]) => (
+      <div class="ipc"><div class="ipi"><Icon name="layers" size={24} /></div><h3>{t}</h3><p>{d}</p></div>
+    ))}
+  </div>
+  <p style="margin-top:32px"><a class="btn p" href={`mailto:${SITE.email}?subject=Supply%20chain%20finance`}>Talk to our team</a></p>
+</div></section>
+<section class="sec sky" id="how"><div class="w split2"><div>
+  <div class="lab"><i class="ch"></i><span>How it works</span></div>
+  <h2>From application to funding.</h2>
+  <p class="lead">Three steps, built around how your business operates.</p></div>
+  <div class="steps">{steps.map(([t, d], i) => (
+    <div class="step"><div class="num">{i + 1}</div><div><b>{t}</b><span>{d}</span></div></div>
+  ))}</div>
+</div></section>
+<section class="sec" id="who"><div class="w split2"><div>
+  <div class="lab"><i class="ch"></i><span>Who it is for</span></div>
+  <h2>Built for businesses that move fast.</h2></div>
+  <div class="ipl">{who.map((w) => <div class="ipn"><b>{w}</b></div>)}</div>
+</div></section>
+<section class="sec sky faq" id="faq"><div class="w">
+  <div class="lab"><i class="ch"></i><span>FAQs</span></div>
+  <h2>Questions about supply chain finance.</h2>
+  <div class="split2"><div>{faq.map((f) => (
+    <details><summary>{f.q}<span class="pm"><Icon name="plus" size={20} sw={2.5} /></span></summary><p>{f.a}</p></details>
+  ))}</div></div>
+</div></section>
+</Layout>
