@@ -25,7 +25,6 @@ export const SITE = {
     linkedin: 'https://www.linkedin.com/company/blocmfb/',
     instagram: 'https://www.instagram.com/blocmfb',
     facebook: 'https://www.facebook.com/share/1GZiSisMNX/',
-    x: 'https://twitter.com/blocmfb',
   },
   gtm: (import.meta.env.PUBLIC_GTM_ID as string) || '',
   contactEndpoint: (import.meta.env.PUBLIC_CONTACT_ENDPOINT as string) || '',

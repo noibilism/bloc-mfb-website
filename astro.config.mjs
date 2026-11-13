@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Pages marked noindex (placeholders still to be filled) stay out of the sitemap.
-      filter: (page) => !['/404', '/leadership/', '/charges/'].some((p) => page.includes(p)),
+      filter: (page) => !['/404', '/leadership/'].some((p) => page.includes(p)),
       changefreq: 'monthly',
       priority: 0.7,
     }),

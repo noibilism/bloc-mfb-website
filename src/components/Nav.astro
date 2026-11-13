@@ -31,9 +31,9 @@ const company: Item[] = [
   ['shieldck', 'Security', 'How we protect money and data', '/security/'],
 ];
 const menus: { label: string; key: string; items: Item[]; side: Link[]; co?: boolean }[] = [
-  { label: 'Personal', key: 'personal', items: personal, side: [['Security', '/personal/#security'], ['Guide to charges', '/charges/'], ['FAQs', '/personal/#faq']] },
+  { label: 'Personal', key: 'personal', items: personal, side: [['Security', '/personal/#security'], ['Charges and rates', '/charges/'], ['FAQs', '/personal/#faq']] },
   { label: 'Business', key: 'business', items: business, side: [['Open an account', SITE.business], ['How it works', '/business/#how'], ['FAQs', '/business/#faq']] },
-  { label: 'Company', key: 'company', items: company, co: true, side: [['Contact us', '/contact/'], ['Complaints', '/legal/#complaints'], ['Guide to charges', '/charges/'], ['Help centre', '/help/']] },
+  { label: 'Company', key: 'company', items: company, co: true, side: [['Contact us', '/contact/'], ['Complaints', '/legal/#complaints'], ['Charges and rates', '/charges/'], ['Help centre', '/help/']] },
 ];
 const cta = section === 'business'
   ? { label: 'Open a business account', href: SITE.business }
