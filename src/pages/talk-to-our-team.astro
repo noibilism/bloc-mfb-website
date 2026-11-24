@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHead from '../components/PageHead.astro';
+import { SITE } from '../data/site';
+const topics = ['Open a Business Account','Banking Services','Business Loans / Financing','Payment Solutions','Agency Banking','Partnership Opportunities','Other Enquiries'];
+---
+<Layout title="Talk to our team" description="Talk to the Bloc Microfinance Bank business team about business accounts, financing, payment solutions, agency banking and partnerships." path="/talk-to-our-team/" section="business" breadcrumb={[{ name: 'Talk to our team', path: '/talk-to-our-team/' }]}>
+<PageHead crumb="Talk to our team" h1="Talk to our team." lead="Have a question or need assistance? Fill out the form below, and our team will get in touch with you." />
+<section class="sec" id="talk"><div class="w split2">
+  <div>
+    <div class="ipl">
+      <div class="ipn"><b>Prefer to call or write?</b><span><a class="ul2" href={`tel:${SITE.phone}`}>{SITE.phone}</a><br><a class="ul2" href={`mailto:${SITE.email}`}>{SITE.email}</a></span></div>
+    </div>
+  </div>
+  <div>
+    <form class="cf" id="talk-form" novalidate data-endpoint={SITE.contactEndpoint}>
+      <label>Full name *<input name="name" type="text" autocomplete="name" required /></label>
+      <label>Company or business name<input name="company" type="text" autocomplete="organization" /></label>
+      <label>Work email address *<input name="email" type="email" autocomplete="email" required /></label>
+      <label>Phone number *<input name="phone" type="tel" autocomplete="tel" required /></label>
+      <label>What would you like to discuss? *
+        <select name="topic" required>
+          <option value="">Select a topic</option>
+          {topics.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off" /></label></div>
+      <small>We use your details only to reply to you. See our <a href="/privacy-notice/">privacy notice</a>. Never send your PIN, password or full card number.</small>
+      <button class="btn p" type="submit">Send</button>
+      <div class="st" id="talk-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></section>
+<script>
+  const form = document.getElementById('talk-form') as HTMLFormElement | null;
+  const status = document.getElementById('talk-status') as HTMLElement | null;
+  if (form && status) {
+    const pre = new URLSearchParams(location.search).get('topic');
+    const sel = form.elements.namedItem('topic') as HTMLSelectElement;
+    if (pre && Array.from(sel.options).some((o) => o.value === pre)) sel.value = pre;
+    const say = (msg: string, kind: 'ok' | 'err') => { status.textContent = msg; status.className = 'st ' + kind; };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      if (data.website) return;
+      if (!data.name?.trim() || !/^\S+@\S+\.\S+$/.test(data.email || '') || !data.phone?.trim() || !data.topic) {
+        say('Please fill in your name, a valid work email, your phone number and a topic.', 'err');
+        return;
+      }
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) {
+        say('This form is not connected yet. Please email support@blocmfb.com or call 07042047811.', 'err');
+        return;
+      }
+      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+      btn.disabled = true; say('Sending...', 'ok');
+      try {
+        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...data, form: 'talk-to-our-team', page: location.href }) });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset(); say('Thank you. Our team will get in touch with you.', 'ok');
+      } catch {
+        say('We could not send your request. Please email support@blocmfb.com or call 07042047811.', 'err');
+      } finally { btn.disabled = false; }
+    });
+  }
+</script>
+</Layout>

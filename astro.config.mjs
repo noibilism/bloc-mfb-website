@@ -11,13 +11,14 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Pages marked noindex (placeholders still to be filled) stay out of the sitemap.
-      filter: (page) => !['/404', '/leadership/'].some((p) => page.includes(p)),
+      filter: (page) => !['/404'].some((p) => page.includes(p)),
       changefreq: 'monthly',
       priority: 0.7,
     }),
   ],
   // Old blocmfb.com URLs. Configure real 301s at the host as well (see README).
   redirects: {
+    '/leadership': '/about/',
     '/faq': '/help/#faq',
     '/compliance': '/legal/',
     '/download-retail-app': '/personal/#download',
